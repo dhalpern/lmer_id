@@ -1,7 +1,7 @@
 library(RePsychLing)
 library(lme4)
 
-singularity_tol <- 1e-4
+singularity_tol <- lmerControl()$checkConv$check.conv.singular$tol
 
 m0 <- lmer(sottrunc2 ~ 1 + T + P + F + TP + TF + PF + TPF + 
              (1 + T + F + TF | session) + (1 + T + P + TP | item), 
