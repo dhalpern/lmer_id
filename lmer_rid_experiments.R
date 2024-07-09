@@ -24,6 +24,16 @@ m_rid_both <- lmer(
   gb12, REML = FALSE)
 summary(rePCA(m_rid_both))
 
+chf_rid_both_item <- getME(m_rid_both, "Tlist")[[2]]
+(xx_rid_both_item <- tcrossprod(chf_rid_both_item))
+id_out_rid_both_item <- rid(xx_rid_both_item, k = 1)
+id_out_rid_both_item$idx
+
+#Final model
+m_rid_both2 <- lmer(
+  sottrunc2 ~ 1 + T + P + F + TP + TF + PF + TPF + (1 + F | session) + (1 | item), 
+  gb12, REML = FALSE)
+
 # Do RID on session first ----------------------------------------------------
 
 m_rid_session <- lmer(
