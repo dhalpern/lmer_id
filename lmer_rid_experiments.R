@@ -14,7 +14,7 @@ chf0_session <- getME(m0, "Tlist")[[1]]
 id_out_session <- rid(xx_session, k = 2)
 id_out_session$idx # 1 and 3
 
-chf0_item <- getME(m0, "Tlist")[[1]]
+chf0_item <- getME(m0, "Tlist")[[2]]
 (xx_item <- tcrossprod(chf0_item))
 id_out_item <- rid(xx_item, k = 2)
 id_out_item$idx # 1 and 3
